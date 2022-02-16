@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
+    <span class="badge badge-primary">{{ post['created'] }}</span>
+    <p>{{ post['isAutomated'] }}</p>
+    <p>{{ post['appName'] }}</p>
+    <p>{{ post['appVersion'] }}</p>
+    <p>{{ post['cookieEnabled'] }}</p>
+    <p>{{ post['geolocation'] }}</p>
+    <p>{{ post['platform'] }}</p>
+    <p>{{ post['userAgent'] }}</p>
+    <p>{{ post['javaEnabled'] }}</p>
+    <p>{{ post['Height'] }}</p>
+    <p>{{ post['Width'] }}</p>
+    <p>{{ post['OutHeight'] }}</p>
+    <p>{{ post['OutWidth'] }}</p>
+    <p>{{ post['Opener'] }}</p>
+    <p>{{ post['evalBrowser'] }}</p>
+{% endblock %}
