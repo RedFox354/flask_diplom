@@ -6,11 +6,11 @@
   var platform = navigator.platform;
   var userAgent = navigator.userAgent;
   var javaEnabled = navigator.javaEnabled();
-  var WindowHeight = window.innerHeight;
-  var WindowWidth = window.innerWidth;
-  var WindowOutHeight = window.outerHeight;
-  var WindowOutWidth = window.outerWidth;
-  var Opener = window.opener;
+  var windowHeight = window.innerHeight;
+  var windowWidth = window.innerWidth;
+  var windowOutHeight = window.outerHeight;
+  var windowOutWidth = window.outerWidth;
+  var opener = window.opener;
   var evalBrowser = eval.toString().length;
 /*
   document.getElementById("WindowHeight").innerHTML = WindowHeight;
@@ -56,30 +56,22 @@
   document.getElementById("userAgent").innerHTML = userAgent;
 }*/
 //-----------------------------------------------------------------------------------------------------------
-/*
-function SendJSON(){
-let xhr = new XMLHttpRequest();
-let url = "client_data.php"; //creating xhr object
-xhr.open("POST", url, true); //opening connection
-xhr.setRequestHeader("Content-Type", "application/json"); // Set the request header i.e. which type of content you are sending
-// Create a state change callback
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    // Print received data from server
-  result.innerHTML = this.responseText;
-   }
-};
-var data = JSON.stringify({ "isAutomated": isAutomated.value});
-xhr.send(data);
-}
-*/
 window.onload = function() {
 var server_data = [
   {"Automated": isAutomated},
-  {"Height": WindowOutHeight},
-  {"Width": WindowOutWidth},
-  {"Eval": evalBrowser},
-  {"Useragent": userAgent}
+  {"AppName": appName},
+  {"AppVersion": appVersion},
+  {"CookieEnabled": cookieEnabled},
+  {"GeoLocation": geolocation},
+  {"Platform": platform},
+  {"Useragent": userAgent},
+  {"JavaEnabled": javaEnabled},
+  {"WindowHeight": windowHeight},
+  {"WindowWidth": windowWidth},
+  {"WindowOutHeight": windowOutHeight},
+  {"WindowOutWidth": windowOutWidth},
+  {"Opener": opener},
+  {"Eval": evalBrowser}  
  ];
  $.ajax({
     type: "POST",
