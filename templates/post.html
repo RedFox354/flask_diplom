@@ -3,18 +3,19 @@
 {% block content %}
     <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
     <span class="badge badge-primary">{{ post['created'] }}</span>
-    <p>Is Automated: {{ post['Automated'] }}</p>
-    <p>App name: {{ post['AppName'] }}</p>
-    <p>App version: {{ post['AppVersion'] }}</p>
-    <p>Is cookie enabled: {{ post['CookieEnabled'] }}</p>
-    <p>Geo: {{ post['Geolocation'] }}</p>
-    <p>Platform: {{ post['Platform'] }}</p>
-    <p>User Agent: {{ post['UserAgent'] }}</p>
-    <p>Is java enabled: {{ post['JavaEnabled'] }}</p>
-    <p>Window height: {{ post['WindowHeight'] }}</p>
-    <p>Window width: {{ post['WindowWidth'] }}</p>
-    <p>Window Outer Height: {{ post['WindowOutHeight'] }}</p>
-    <p>Window Outer Width: {{ post['WindowOutWidth'] }}</p>
-    <p>Opener: {{ post['Opener'] }}</p>
-    <p>Eval Browser: {{ post['EvalBrowser'] }}</p>
+    <p>params</p>
+    <p>{{ post['Automated'] }}</p>
+    <p>{{ post['AppName'] }}</p>
+    <p>{{ post['AppVersion'] }}</p>
+    <p>{{ post['CookieEnabled'] }}</p>
+    <p>{{ post['Geolocation'] }}</p>
+    <p>{{ post['Platform'] }}</p>
+    <p>{{ post['UserAgent'] }}</p>
+    <p>{{ post['JavaEnabled'] }}</p>
+    <p>{{ post['WindowHeight'] }}</p>
+    <p>{{ post['WindowWidth'] }}</p>
+    <p>{{ post['WindowOutHeight'] }}</p>
+    <p>{{ post['WindowOutWidth'] }}</p>
+    <p>{{ post['Opener'] }}</p>
+    <p>{{ post['EvalBrowser'] }}</p>
 {% endblock %}
