@@ -3,18 +3,18 @@
 {% block content %}
     <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
     <span class="badge badge-primary">{{ post['created'] }}</span>
-    <p>{{ post['isAutomated'] }}</p>
-    <p>{{ post['appName'] }}</p>
-    <p>{{ post['appVersion'] }}</p>
-    <p>{{ post['cookieEnabled'] }}</p>
-    <p>{{ post['geolocation'] }}</p>
-    <p>{{ post['platform'] }}</p>
-    <p>{{ post['userAgent'] }}</p>
-    <p>{{ post['javaEnabled'] }}</p>
-    <p>{{ post['Height'] }}</p>
-    <p>{{ post['Width'] }}</p>
-    <p>{{ post['OutHeight'] }}</p>
-    <p>{{ post['OutWidth'] }}</p>
-    <p>{{ post['Opener'] }}</p>
-    <p>{{ post['evalBrowser'] }}</p>
+    <p>Is Automated: {{ post['Automated'] }}</p>
+    <p>App name: {{ post['AppName'] }}</p>
+    <p>App version: {{ post['AppVersion'] }}</p>
+    <p>Is cookie enabled: {{ post['CookieEnabled'] }}</p>
+    <p>Geo: {{ post['Geolocation'] }}</p>
+    <p>Platform: {{ post['Platform'] }}</p>
+    <p>User Agent: {{ post['UserAgent'] }}</p>
+    <p>Is java enabled: {{ post['JavaEnabled'] }}</p>
+    <p>Window height: {{ post['WindowHeight'] }}</p>
+    <p>Window width: {{ post['WindowWidth'] }}</p>
+    <p>Window Outer Height: {{ post['WindowOutHeight'] }}</p>
+    <p>Window Outer Width: {{ post['WindowOutWidth'] }}</p>
+    <p>Opener: {{ post['Opener'] }}</p>
+    <p>Eval Browser: {{ post['EvalBrowser'] }}</p>
 {% endblock %}
