@@ -1,3 +1,4 @@
+  var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search;
   var isAutomated = navigator.webdriver;
   var appName = navigator.appName;
   var appVersion = navigator.appVersion;
@@ -12,52 +13,14 @@
   var windowOutWidth = window.outerWidth;
   var opener = window.opener;
   var evalBrowser = eval.toString().length;
-/*
-  document.getElementById("WindowHeight").innerHTML = WindowHeight;
-  document.getElementById("WindowWidth").innerHTML = WindowWidth;
-  document.getElementById("WindowOutHeight").innerHTML = WindowOutHeight;
-  document.getElementById("WindowOutWidth").innerHTML = WindowOutWidth;
-  document.getElementById("Opener").innerHTML = Opener;
-  document.getElementById("javaEnabled").innerHTML = javaEnabled;
-  switch(evalBrowser){
-    case 37:
-      document.getElementById("eval").innerHTML = "Firefox/Safari";
-      break;
-    case 33:
-      document.getElementById("eval").innerHTML = "Chrome";
-      break;
-    case 39:
-      document.getElementById("eval").innerHTML = "Explorer";
-      break;
-    default:
-      document.getElementById("eval").innerHTML = evalBrowser;
-  */
-/*
-  navigator.permissions.query({name:'notifications'}).then(function(permissionStatus) {
-    if(Notification.permission === 'denied' && permissionStatus.state === 'prompt') {
-        document.getElementById("APIPerm").innerHTML = "Headless Chrome";
-    } else {
-        document.getElementById("APIPerm").innerHTML = "Not Headless Chrome";
-    }
-    //document.getElementById("APIPerm").innerHTML = Notification.permission+permissionStatus.state;
-  });
-
-  if(isAutomated){
-    document.getElementById("IsAutomated").innerHTML = "automated";
-  }
-  else{
-    document.getElementById("IsAutomated").innerHTML = "not automated";
-  }
-  document.getElementById("appName").innerHTML = appName;
-  document.getElementById("appVersion").innerHTML = appVersion;
-  document.getElementById("cookieEnabled").innerHTML = cookieEnabled;
-  document.getElementById("geolocation").innerHTML = geolocation;
-  document.getElementById("platform").innerHTML = platform;
-  document.getElementById("userAgent").innerHTML = userAgent;
-}*/
+  var result = "undefined";
+//-----------------------------------------------------------------------------------------------------------
+  if (isAutomated || windowOutHeight==984 && windowOutWidth==1296){
+    result = 'exactly_bot';
 //-----------------------------------------------------------------------------------------------------------
 window.onload = function() {
 var server_data = [
+  {"URL": newURL},
   {"Automated": isAutomated},
   {"AppName": appName},
   {"AppVersion": appVersion},
@@ -71,7 +34,8 @@ var server_data = [
   {"WindowOutHeight": windowOutHeight},
   {"WindowOutWidth": windowOutWidth},
   {"Opener": opener},
-  {"Eval": evalBrowser}  
+  {"Eval": evalBrowser}
+  {"Result": result},
  ];
  $.ajax({
     type: "POST",

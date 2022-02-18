@@ -11,10 +11,6 @@ var isAutomated = navigator.webdriver;
 var WindowOutHeight = window.outerHeight;
 var WindowOutWidth = window.outerWidth;
 
-if (isAutomated || WindowOutHeight==984 && WindowOutWidth==1296){
-  exactly_bot = true;
-  //alert("exactly bot!");
-}
 /*lastmousex = screenX; != defaultcan_be_bot_without_mouse
 document.getElementById("screenX_mon").innerHTML = lastmousex;*/
 

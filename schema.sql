@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS data;
 CREATE TABLE data (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    url TEXT NOT NULL,
     isAutomated TEXT NOT NULL,
     appName TEXT NOT NULL,
     appVersion TEXT NOT NULL,
@@ -16,5 +17,6 @@ CREATE TABLE data (
     OutHeight INTEGER NOT NULL,
     OutWidth INTEGER NOT NULL,
     Opener TEXT NOT NULL,
-    evalBrowser INTEGER NOT NULL
+    evalBrowser INTEGER NOT NULL,
+    result TEXT NOT NULL DEFAULT 'undefined'
 );
