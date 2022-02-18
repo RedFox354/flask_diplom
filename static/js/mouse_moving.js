@@ -13,7 +13,7 @@ var WindowOutWidth = window.outerWidth;
 
 /*lastmousex = screenX; != defaultcan_be_bot_without_mouse
 document.getElementById("screenX_mon").innerHTML = lastmousex;*/
-
+/*
 let screenLog = document.querySelector('#screen-log');
 document.addEventListener('mousemove', mousemoving_ex);
 
@@ -21,7 +21,7 @@ function mousemoving_ex(e) {
   screenLog.innerText = `
     Screen X/Y: ${e.screenX}, ${e.screenY}`;
 }
-
+*/
 document.addEventListener('mousemove', mousemoving);
 
 function mousemoving(e) {

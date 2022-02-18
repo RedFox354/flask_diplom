@@ -17,6 +17,7 @@
 //-----------------------------------------------------------------------------------------------------------
   if (isAutomated || windowOutHeight==984 && windowOutWidth==1296){
     result = 'exactly_bot';
+  }
 //-----------------------------------------------------------------------------------------------------------
 window.onload = function() {
 var server_data = [
@@ -34,8 +35,8 @@ var server_data = [
   {"WindowOutHeight": windowOutHeight},
   {"WindowOutWidth": windowOutWidth},
   {"Opener": opener},
-  {"Eval": evalBrowser}
-  {"Result": result},
+  {"Eval": evalBrowser},
+  {"Result": result}
  ];
  $.ajax({
     type: "POST",
