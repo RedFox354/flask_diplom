@@ -18,9 +18,43 @@ app.config['MONGODB_SETTINGS'] = {
 db = MongoEngine()
 db.init_app(app)
 
-class User(db.Document):
-    name = db.StringField()
-    email = db.StringField()
+class logs(db.Document):
+    url = db.StringField()
+    created = db.StringField()
+    isAutomated = db.StringField()
+    appName = db.StringField()
+    appVersion = db.StringField()
+    cookieEnabled = db.StringField()
+    geolocation = db.StringField()
+    platform = db.StringField()
+    userAgent = db.StringField()
+    javaEnabled = db.StringField()
+    Height = db.StringField()
+    Width = db.StringField()
+    OutHeight = db.StringField()
+    OutWidth = db.StringField()
+    Opener = db.StringField()
+    evalBrowser = db.StringField()
+    result = db.StringField()
+    def to_json(self):
+        return {"url": self.url,
+        "created": self.created,
+        "isAutomated": self.isAutomated,
+        "appName": self.appName,
+        "appVersion": self.appVersion,
+        "cookieEnabled": self.cookieEnabled,
+        "geolocation": self.geolocation,
+        "platform": self.platform,
+        "userAgent": self.userAgent,
+        "javaEnabled": self.javaEnabled,
+        "Height": self.Height,
+        "Width": self.Width,
+        "OutHeight": self.OutHeight,
+        "OutWidth": self.OutWidth,
+        "Opener": self.Opener,
+        "evalBrowser": self.evalBrowser,
+        "result": self.result}
+
 
 @app.route('/', methods=['GET'])
 def index():
@@ -29,6 +63,7 @@ def index():
     data = conn.execute('SELECT * FROM data').fetchall()
     conn.close()
     '''
+    data = db.col.find()
     return render_template('index.html', data=data)
 
 @app.route('/', methods=['POST'])
