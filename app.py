@@ -1,6 +1,7 @@
 import sqlite3
 from flask import Flask, render_template, request, jsonify
 from werkzeug.exceptions import abort
+from flask_mongoengine import MongoEngine
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
@@ -9,11 +10,25 @@ def get_db_connection():
 
 app = Flask(__name__)
 
+app.config['MONGODB_SETTINGS'] = {
+    'db': 'mongo_database',
+    'host': 'localhost',
+    'port': 27017
+}
+db = MongoEngine()
+db.init_app(app)
+
+class User(db.Document):
+    name = db.StringField()
+    email = db.StringField()
+
 @app.route('/', methods=['GET'])
 def index():
+    '''
     conn = get_db_connection()
     data = conn.execute('SELECT * FROM data').fetchall()
     conn.close()
+    '''
     return render_template('index.html', data=data)
 
 @app.route('/', methods=['POST'])
