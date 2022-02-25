@@ -3,8 +3,8 @@
 {% block content %}
     <h1>{% block title %} Welcome to BotDetector {% endblock %}</h1>
     {% for post in data %}
-        <a href="{{ url_for('post', post_id=post['id']) }}">
-            <h2>{{ post['id'] }}</h2>
+        <a href="{{ url_for('post', post_result=post['result']) }}">
+            <h2>{{ post['result'] }}</h2>
         </a>
         <span class="badge badge-primary">{{ post['created'] }}</span>
         <hr>
