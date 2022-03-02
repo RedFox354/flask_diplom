@@ -9,65 +9,11 @@ def get_db_connection():
 
 app = Flask(__name__)
 
-<<<<<<< HEAD
-=======
-app.config['MONGODB_SETTINGS'] = {
-    'db': 'mongo_database',
-    'host': 'localhost',
-    'port': 27017
-}
-db = MongoEngine()
-db.init_app(app)
-
-class logs(db.Document):
-    url = db.StringField()
-    created = db.StringField()
-    isAutomated = db.StringField()
-    appName = db.StringField()
-    appVersion = db.StringField()
-    cookieEnabled = db.StringField()
-    geolocation = db.StringField()
-    platform = db.StringField()
-    userAgent = db.StringField()
-    javaEnabled = db.StringField()
-    Height = db.StringField()
-    Width = db.StringField()
-    OutHeight = db.StringField()
-    OutWidth = db.StringField()
-    Opener = db.StringField()
-    evalBrowser = db.StringField()
-    result = db.StringField()
-    def to_json(self):
-        return {"url": self.url,
-        "created": self.created,
-        "isAutomated": self.isAutomated,
-        "appName": self.appName,
-        "appVersion": self.appVersion,
-        "cookieEnabled": self.cookieEnabled,
-        "geolocation": self.geolocation,
-        "platform": self.platform,
-        "userAgent": self.userAgent,
-        "javaEnabled": self.javaEnabled,
-        "Height": self.Height,
-        "Width": self.Width,
-        "OutHeight": self.OutHeight,
-        "OutWidth": self.OutWidth,
-        "Opener": self.Opener,
-        "evalBrowser": self.evalBrowser,
-        "result": self.result}
-
-
->>>>>>> 4277adb49f50febaccbebb218e461b217af4beca
 @app.route('/', methods=['GET'])
 def index():
     conn = get_db_connection()
     data = conn.execute('SELECT * FROM data').fetchall()
     conn.close()
-<<<<<<< HEAD
-=======
-    '''
-    data = db.col.find()
->>>>>>> 4277adb49f50febaccbebb218e461b217af4beca
     return render_template('index.html', data=data)
 
 @app.route('/', methods=['POST'])
