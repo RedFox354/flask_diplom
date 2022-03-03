@@ -59,8 +59,8 @@ function CursorSpeed(){ //average speed of cursor
  }
  mass=[];
  cursorSpeed = Math.round(sum_mousetravel/5);
-  if(Math.abs(cursorSpeed2-cursorSpeed)>70){cursorSpeed2=cursorSpeed;} else {cursorSpeed=0;}
- document.getElementById("target").innerHTML=cursorSpeed;
+  if(Math.abs(cursorSpeed2-cursorSpeed)>60){cursorSpeed2=cursorSpeed;} else {cursorSpeed=0;}
+ //document.getElementById("target").innerHTML=cursorSpeed;
  } ;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 var myLinks = document.getElementsByTagName("a"); //trigger for myLinks
@@ -69,17 +69,22 @@ for (let a of myLinks){
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////
  function check_trigger(){
-   if(can_be_bot_without_mouse==true || exactly_bot==true){
-     alert('bot!');
+   if(can_be_bot_without_mouse==true){
+     exactly_bot=true;
+     result="gtlwm"; //going to link without mouse
+     //alert('bot!');
    }
  }
 ///////////////////////////////////////////////////////////////////////////////////////////////
+/*
  function alarm(){ //actions when bot was detected
    alert("Mouse actions weren't detected!");
    can_be_bot_without_mouse=true;
-   clearTimeout(MouseAlert);  }
+   clearTimeout(MouseAlert);
+ }
+ */
 ///////////////////////////////////////////////////////////////////////////////////////////////
- var MouseAlert=setTimeout(alarm,7000);
+ // var MouseAlert=setTimeout(alarm,7000);
 
  addEventListener("mousedown", function () {
      //can_be_bot_without_mouse=false;
