@@ -54,8 +54,12 @@ function mousemoving(e) {
 setInterval(CursorSpeed,500);
 function CursorSpeed(){ //average speed of cursor
  var sum_mousetravel=0;
- for (let a of mass){
+ for (let a of mass-1){
    sum_mousetravel+=a;
+   if(mass[a]==mass[a+1])
+    {
+      result="csm";//constant speed of cursor
+    }
  }
  mass=[];
  cursorSpeed = Math.round(sum_mousetravel/5);
@@ -77,7 +81,7 @@ for (let a of myLinks){
  }
 ///////////////////////////////////////////////////////////////////////////////////////////////
 /*
- function alarm(){ //actions when bot was detected
+ function alarm(){
    alert("Mouse actions weren't detected!");
    can_be_bot_without_mouse=true;
    clearTimeout(MouseAlert);
@@ -99,6 +103,7 @@ for (let a of myLinks){
 var HidenLink = document.getElementById("HidenLink"); //HidenLink
 //HidenLink.onload = alert("Bot Loading hiden link");
 HidenLink.onload = function(){
+  result="gthl";//going to hidden link
   exactly_bot = true;
   var server_data = [
     {"URL": newURL},
