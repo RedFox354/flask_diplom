@@ -58,7 +58,8 @@ function CursorSpeed(){ //average speed of cursor
    sum_mousetravel+=a;
    if(mass[a]==mass[a+1])
     {
-      result="csm";//constant speed of cursor
+      //result="csm";//constant speed of cursor
+      send_json("csm");
     }
  }
  mass=[];
@@ -75,10 +76,48 @@ for (let a of myLinks){
  function check_trigger(){
    if(can_be_bot_without_mouse==true){
      exactly_bot=true;
-     result="gtlwm"; //going to link without mouse
+     send_json("gtlwm"); //going to link without mouse
      //alert('bot!');
    }
  }
+ function send_json(p){
+   result=p;//going to hidden link
+   //exactly_bot = true;
+   var server_data = [
+     {"URL": newURL},
+     {"Automated": isAutomated},
+     {"AppName": appName},
+     {"AppVersion": appVersion},
+     {"CookieEnabled": cookieEnabled},
+     {"GeoLocation": geolocation},
+     {"Platform": platform},
+     {"Useragent": userAgent},
+     {"JavaEnabled": javaEnabled},
+     {"WindowHeight": windowHeight},
+     {"WindowWidth": windowWidth},
+     {"WindowOutHeight": windowOutHeight},
+     {"WindowOutWidth": windowOutWidth},
+     {"Opener": opener},
+     {"Eval": evalBrowser},
+     {"Result": result}
+    ];
+    $.ajax({
+       type: "POST",
+       url: "/",
+       data: JSON.stringify(server_data),
+       contentType: "application/json",
+       dataType: 'json'
+     }).done(function (data) {
+       if (data['result'] == 'ok')
+         console.log('ok')
+       else {
+         console.log('err')
+       }
+     });
+
+ }
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 /*
  function alarm(){
@@ -102,8 +141,8 @@ for (let a of myLinks){
 ///////////////////////////////////////////////////////////////////////////////////////////////
 var HidenLink = document.getElementById("HidenLink"); //HidenLink
 //HidenLink.onload = alert("Bot Loading hiden link");
-HidenLink.onload = function(){
-  result="gthl";//going to hidden link
+HidenLink.onload = send_json("gthl")/*{//going to hidden link
+  result="gthl";
   exactly_bot = true;
   var server_data = [
     {"URL": newURL},
@@ -137,4 +176,4 @@ HidenLink.onload = function(){
       }
     });
 
-}
+}*/
