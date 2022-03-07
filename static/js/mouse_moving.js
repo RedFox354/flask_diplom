@@ -26,18 +26,6 @@ var result = "undefined";
 
 var WindowOutHeight = window.outerHeight;
 var WindowOutWidth = window.outerWidth;
-
-/*lastmousex = screenX; != defaultcan_be_bot_without_mouse
-document.getElementById("screenX_mon").innerHTML = lastmousex;*/
-/*
-let screenLog = document.querySelector('#screen-log');
-document.addEventListener('mousemove', mousemoving_ex);
-
-function mousemoving_ex(e) {
-  screenLog.innerText = `
-    Screen X/Y: ${e.screenX}, ${e.screenY}`;
-}
-*/
 document.addEventListener('mousemove', mousemoving);
 
 function mousemoving(e) {
@@ -55,18 +43,20 @@ setInterval(CursorSpeed,500);
 function CursorSpeed(){ //average speed of cursor
  var sum_mousetravel=0;
 
+
  for (let a=0; a<=mass.length-1; a++){
-   sum_mousetravel+=a;
-   if(mass[a]==mass[a+1]&&mass[a]!=0)
-    {
-      //result="csm";//constant speed of cursor
-      send_json("csm");
-    }
+   sum_mousetravel+=mass[a];
  }
+ if((int(mass[1])==int(sum_mousetravel/mass.length)])&&(mass[1]!=0))
+  {
+    //result="csm";//constant speed of cursor
+    //alert(mass);
+    send_json("csm");
+  }
  mass=[];
  cursorSpeed = Math.round(sum_mousetravel/5);
   if(Math.abs(cursorSpeed2-cursorSpeed)>60){cursorSpeed2=cursorSpeed;} else {cursorSpeed=0;}
- //document.getElementById("target").innerHTML=cursorSpeed;
+ document.getElementById("target").innerHTML=cursorSpeed;
  } ;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 var myLinks = document.getElementsByTagName("a"); //trigger for myLinks
