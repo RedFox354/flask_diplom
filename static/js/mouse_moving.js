@@ -54,9 +54,10 @@ function mousemoving(e) {
 setInterval(CursorSpeed,500);
 function CursorSpeed(){ //average speed of cursor
  var sum_mousetravel=0;
- for (let a of mass-1){
+
+ for (let a=0; a<=mass.length-1; a++){
    sum_mousetravel+=a;
-   if(mass[a]==mass[a+1])
+   if(mass[a]==mass[a+1]&&mass[a]!=0)
     {
       //result="csm";//constant speed of cursor
       send_json("csm");
@@ -136,44 +137,8 @@ for (let a of myLinks){
 
  addEventListener("mousemove", function () {
      can_be_bot_without_mouse=false;
-     clearTimeout(MouseAlert);
+     //clearTimeout(MouseAlert);
  });
 ///////////////////////////////////////////////////////////////////////////////////////////////
 var HidenLink = document.getElementById("HidenLink"); //HidenLink
-//HidenLink.onload = alert("Bot Loading hiden link");
-HidenLink.onload = send_json("gthl")/*{//going to hidden link
-  result="gthl";
-  exactly_bot = true;
-  var server_data = [
-    {"URL": newURL},
-    {"Automated": isAutomated},
-    {"AppName": appName},
-    {"AppVersion": appVersion},
-    {"CookieEnabled": cookieEnabled},
-    {"GeoLocation": geolocation},
-    {"Platform": platform},
-    {"Useragent": userAgent},
-    {"JavaEnabled": javaEnabled},
-    {"WindowHeight": windowHeight},
-    {"WindowWidth": windowWidth},
-    {"WindowOutHeight": windowOutHeight},
-    {"WindowOutWidth": windowOutWidth},
-    {"Opener": opener},
-    {"Eval": evalBrowser},
-    {"Result": result}
-   ];
-   $.ajax({
-      type: "POST",
-      url: "/",
-      data: JSON.stringify(server_data),
-      contentType: "application/json",
-      dataType: 'json'
-    }).done(function (data) {
-      if (data['result'] == 'ok')
-        console.log('ok')
-      else {
-        console.log('err')
-      }
-    });
-
-}*/
+HidenLink.onload = send_json("gthl")//going to hidden link
