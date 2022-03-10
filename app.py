@@ -18,8 +18,9 @@ def index():
 
 @app.route('/', methods=['POST'])
 def process_data():
+    ip_address = request.remote_addr
     data = request.get_json()
-    module.process_data(data)
+    module.process_data(data, ip_address)
     return jsonify({'result': 'ok'})
 
 '''

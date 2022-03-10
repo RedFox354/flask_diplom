@@ -25,7 +25,7 @@ def index():
     conn.close()
     return data
 
-def process_data(data):
+def process_data(data, ip_address):
     #data = request.get_json()
     if (str(data[15])=="undefined"):
         data[15] = "Result: Wasn't suspicious activity"
@@ -39,8 +39,8 @@ def process_data(data):
         data[15] = "Result: strange result"
     conn = get_db_connection()
     cur = conn.cursor()
-    data = cur.execute('INSERT INTO data (url, isAutomated, appName, appVersion, cookieEnabled, geolocation, platform, userAgent, javaEnabled, Height, Width, OutHeight, OutWidth, Opener, evalBrowser, result) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
-                    (str(data[0]),str(data[1]),str(data[2]),str(data[3]),str(data[4]),str(data[5]),str(data[6]),str(data[7]),str(data[8]),str(data[9]),str(data[10]),str(data[11]),str(data[12]),str(data[13]),str(data[14]),str(data[15])))
+    data = cur.execute('INSERT INTO data (ip, url, isAutomated, appName, appVersion, cookieEnabled, geolocation, platform, userAgent, javaEnabled, Height, Width, OutHeight, OutWidth, Opener, evalBrowser, result) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+                    (str(ip_address),str(data[0]),str(data[1]),str(data[2]),str(data[3]),str(data[4]),str(data[5]),str(data[6]),str(data[7]),str(data[8]),str(data[9]),str(data[10]),str(data[11]),str(data[12]),str(data[13]),str(data[14]),str(data[15])))
     conn.commit()
     conn.close()
     return 0
