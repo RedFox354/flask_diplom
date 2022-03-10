@@ -36,6 +36,8 @@ def process_data(data, ip_address):
         data[15] = "Result: Went to link without mouse"
     elif (str(data[15])=="{'Result': 'gthl'}"):
         data[15] = "Result: Went to hidden link"
+    elif (str(data[15])=="{'Result': 'wsb'}"):
+        data[15] = "Result: Window sizes such as bot"
     else:
         data[15] = "Result: strange result"
     conn = get_db_connection()
