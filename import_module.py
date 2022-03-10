@@ -27,6 +27,16 @@ def index():
 
 def process_data(data):
     #data = request.get_json()
+    if (str(data[15])=="undefined"):
+        data[15] = "Result: Wasn't suspicious activity"
+    elif (str(data[15])=="csm"):
+        data[15] = "Result: Constant cursor speed"
+    elif (str(data[15])=="gtlwm"):
+        data[15] = "Result: Went to link without mouse"
+    elif (str(data[15])=="gthl"):
+        data[15] = "Result: Went to hidden link"
+    else:
+        data[15] = "Result: strange result"
     conn = get_db_connection()
     cur = conn.cursor()
     data = cur.execute('INSERT INTO data (url, isAutomated, appName, appVersion, cookieEnabled, geolocation, platform, userAgent, javaEnabled, Height, Width, OutHeight, OutWidth, Opener, evalBrowser, result) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
