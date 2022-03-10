@@ -26,14 +26,15 @@ def index():
     return data
 
 def process_data(data, ip_address):
-    #data = request.get_json()
-    if (str(data[15])=="undefined"):
+    print(data)
+    print(str(data[15]))
+    if (str(data[15])=="{'Result': 'undefined'}"):
         data[15] = "Result: Wasn't suspicious activity"
-    elif (str(data[15])=="csm"):
+    elif (str(data[15])=="{'Result': 'csm'}"):
         data[15] = "Result: Constant cursor speed"
-    elif (str(data[15])=="gtlwm"):
+    elif (str(data[15])=="{'Result': 'gtlwm'}"):
         data[15] = "Result: Went to link without mouse"
-    elif (str(data[15])=="gthl"):
+    elif (str(data[15])=="{'Result': 'gthl'}"):
         data[15] = "Result: Went to hidden link"
     else:
         data[15] = "Result: strange result"
