@@ -27,9 +27,10 @@ def index():
 
 def process_data(data, ip_address):
     print(data)
-    print(str(data[15]))
     if (str(data[15])=="{'Result': 'undefined'}"):
         data[15] = "Result: Wasn't suspicious activity"
+    elif (str(data[15])=="{'Result': 'wsb'}"):
+        data[15] = "Result: browser is automated"
     elif (str(data[15])=="{'Result': 'csm'}"):
         data[15] = "Result: Constant cursor speed"
     elif (str(data[15])=="{'Result': 'gtlwm'}"):

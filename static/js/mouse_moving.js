@@ -28,7 +28,7 @@ var WindowOutHeight = window.outerHeight;
 var WindowOutWidth = window.outerWidth;
 document.addEventListener('mousemove', mousemoving);
 
-if(windowHeight==1&&windowWidth==1){
+if(windowHeight==904&&windowWidth==1284){
   send_json("wsb");//window sizes of bot
 }
 
@@ -49,7 +49,7 @@ function CursorSpeed(){ //average speed of cursor
  for (let a=0; a<=mass.length-1; a++){
    sum_mousetravel+=mass[a];
  }
- if((int(mass[1])==int(sum_mousetravel/mass.length)])&&(mass[1]!=0))
+ if((int(mass[1])==int(sum_mousetravel/mass.length))&&(mass[1]!=0))
   {
     //result="csm";//constant speed of cursor
     send_json("csm");
