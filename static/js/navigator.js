@@ -20,24 +20,24 @@
   }
 //-----------------------------------------------------------------------------------------------------------
 window.onload = function() {
-var server_data = [
-  {"URL": newURL},
-  {"Automated": isAutomated},
-  {"AppName": appName},
-  {"AppVersion": appVersion},
-  {"CookieEnabled": cookieEnabled},
-  {"GeoLocation": geolocation},
-  {"Platform": platform},
-  {"Useragent": userAgent},
-  {"JavaEnabled": javaEnabled},
-  {"WindowHeight": windowHeight},
-  {"WindowWidth": windowWidth},
-  {"WindowOutHeight": windowOutHeight},
-  {"WindowOutWidth": windowOutWidth},
-  {"Opener": opener},
-  {"Eval": evalBrowser},
-  {"Result": result}
- ];
+var server_data = {
+  "URL": newURL,
+  "Automated": isAutomated,
+  "AppName": appName,
+  "AppVersion": appVersion,
+  "CookieEnabled": cookieEnabled,
+  "GeoLocation": geolocation,
+  "Platform": platform,
+  "Useragent": userAgent,
+  "JavaEnabled": javaEnabled,
+  "WindowHeight": windowHeight,
+  "WindowWidth": windowWidth,
+  "WindowOutHeight": windowOutHeight,
+  "WindowOutWidth": windowOutWidth,
+  "Opener": opener,
+  "Eval": evalBrowser,
+  "Result": result
+};
  $.ajax({
     type: "POST",
     url: "/",

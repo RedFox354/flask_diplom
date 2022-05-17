@@ -1,6 +1,82 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<span class="badge badge-primary">{{ post['created'] }}</span>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Признак</th>
+      <th scope="col">Значение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">IP-адрес</th>
+      <th scope="row">{{ post['ip'] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Запрашиваемый URL</th>
+      <th scope="row">{{ post['url'] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Флаг автоматизации</th>
+      <th scope="row">{{ post[4] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Название приложения</th>
+      <th scope="row">{{ post['AppName'] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Версия приложения</th>
+      <th scope="row">{{ post['AppVersion'] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Значение CookieEnabled</th>
+      <th scope="row">{{ post['CookieEnabled'] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Геолокация</th>
+      <th scope="row">{{ post['Geolocation'] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Платформа</th>
+      <th scope="row">{{ post['Platform'] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Значение UserAgent</th>
+      <th scope="row">{{ post['UserAgent'] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Включен JavaScript</th>
+      <th scope="row">{{ post['JavaEnabled'] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Высота окна</th>
+      <th scope="row">{{ post[12] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Ширина окна</th>
+      <th scope="row">{{ post[13] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Высота внешнего окна</th>
+      <th scope="row">{{ post[14] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Ширина внешнего окна</th>
+      <th scope="row">{{ post[15] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Значение EvalBrowser</th>
+      <th scope="row">{{ post['EvalBrowser'] }}</th>
+    </tr>
+    <tr>
+      <th scope="row">Результат</th>
+      <th scope="row">{{ post['result'] }}</th>
+    </tr>
+  </tbody>
+</table>
+    <!---
     <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
     <span class="badge badge-primary">{{ post['created'] }}</span>
     <p>params</p>
@@ -20,5 +96,5 @@
     <p>{{ post[15] }}</p>
     <p>{{ post['Opener'] }}</p>
     <p>{{ post['EvalBrowser'] }}</p>
-    <p>{{ post['result'] }}</p>
+    <p>{{ post['result'] }}</p>-->
 {% endblock %}

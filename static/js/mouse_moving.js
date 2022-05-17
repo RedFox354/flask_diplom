@@ -49,15 +49,16 @@ function CursorSpeed(){ //average speed of cursor
  for (let a=0; a<=mass.length-1; a++){
    sum_mousetravel+=mass[a];
  }
- if((int(mass[1])==int(sum_mousetravel/mass.length))&&(mass[1]!=0))
+ if((Math.round(mass[1])==Math.round(sum_mousetravel/mass.length))&&(mass[1]<1))
   {
+    alert(mass[1]);
     //result="csm";//constant speed of cursor
-    send_json("csm");
+    //send_json("csm");
   }
  mass=[];
  cursorSpeed = Math.round(sum_mousetravel/5);
   if(Math.abs(cursorSpeed2-cursorSpeed)>60){cursorSpeed2=cursorSpeed;} else {cursorSpeed=0;}
- document.getElementById("target").innerHTML=cursorSpeed;
+ //document.getElementById("target").innerHTML=cursorSpeed;
  } ;
 ///////////////////////////////////////////////////////////////////////////////////////////////
 var myLinks = document.getElementsByTagName("a"); //trigger for myLinks
@@ -75,24 +76,24 @@ for (let a of myLinks){
  function send_json(p){
    result=p;//going to hidden link
    //exactly_bot = true;
-   var server_data = [
-     {"URL": newURL},
-     {"Automated": isAutomated},
-     {"AppName": appName},
-     {"AppVersion": appVersion},
-     {"CookieEnabled": cookieEnabled},
-     {"GeoLocation": geolocation},
-     {"Platform": platform},
-     {"Useragent": userAgent},
-     {"JavaEnabled": javaEnabled},
-     {"WindowHeight": windowHeight},
-     {"WindowWidth": windowWidth},
-     {"WindowOutHeight": windowOutHeight},
-     {"WindowOutWidth": windowOutWidth},
-     {"Opener": opener},
-     {"Eval": evalBrowser},
-     {"Result": result}
-    ];
+   var server_data = {
+     "URL": newURL,
+     "Automated": isAutomated,
+     "AppName": appName,
+     "AppVersion": appVersion,
+     "CookieEnabled": cookieEnabled,
+     "GeoLocation": geolocation,
+     "Platform": platform,
+     "Useragent": userAgent,
+     "JavaEnabled": javaEnabled,
+     "WindowHeight": windowHeight,
+     "WindowWidth": windowWidth,
+     "WindowOutHeight": windowOutHeight,
+     "WindowOutWidth": windowOutWidth,
+     "Opener": opener,
+     "Eval": evalBrowser,
+     "Result": result
+   };
     $.ajax({
        type: "POST",
        url: "/",
@@ -132,4 +133,4 @@ for (let a of myLinks){
  });
 ///////////////////////////////////////////////////////////////////////////////////////////////
 var HidenLink = document.getElementById("HidenLink"); //HidenLink
-HidenLink.onload = send_json("gthl")//going to hidden link
+//HidenLink.onload = send_json("gthl")//going to hidden link
