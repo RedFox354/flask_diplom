@@ -4,7 +4,7 @@
     <h1>{% block title %} Welcome to BotDetector {% endblock %}</h1>
     {% for post in data %}
         <a href="{{ url_for('post', post_id=post['id']) }}">
-            <h2>{{ post['id'] }}</h2>
+            <h2 style="{% if post['result'] != 'undefined' %}color: red{% endif %} ">{{ post['result'] }}</h2>
         </a>
         <span class="badge badge-primary">{{ post['created'] }}</span>
         <hr>
