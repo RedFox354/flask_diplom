@@ -61,7 +61,7 @@ def process_data(data, ip_address):
         result = data['Result']
 
     if (result =='undefined'):
-        result = "Wasn't suspicious activity"
+        result = "Was not suspicious activity"
     elif (result =='wsb'):
         result = "browser is automated"
     elif (result =='csm'):
