@@ -28,6 +28,14 @@ var WindowOutHeight = window.outerHeight;
 var WindowOutWidth = window.outerWidth;
 document.addEventListener('mousemove', mousemoving);
 
+let paragraph = document.querySelectorAll('h2');
+for (let par of paragraph){
+par.textContent = 'Нет подозрительной активности';}
+
+let link = document.querySelectorAll('th');
+  link = Array.from( link ).filter( e => (/Was not suspicious activity/i).test( e.textContent ) );
+  link[0].textContent = 'Нет подозрительной активности';
+
 if(windowHeight==904&&windowWidth==1284){
   send_json("wsb");//window sizes of bot
 }
@@ -51,7 +59,7 @@ function CursorSpeed(){ //average speed of cursor
  }
  if((Math.round(mass[1])==Math.round(sum_mousetravel/mass.length))&&(mass[1]<1))
   {
-    alert(mass[1]);
+    //alert(mass[1]);
     //result="csm";//constant speed of cursor
     //send_json("csm");
   }
