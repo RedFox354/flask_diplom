@@ -32,9 +32,11 @@ let paragraph = document.querySelectorAll('h2');
 for (let par of paragraph){
 par.textContent = 'Нет подозрительной активности';}
 
+try{
 let link = document.querySelectorAll('th');
   link = Array.from( link ).filter( e => (/Was not suspicious activity/i).test( e.textContent ) );
-  link[0].textContent = 'Нет подозрительной активности';
+  link[0].textContent = 'Нет подозрительной активности';}
+  catch{}
 
 if(windowHeight==904&&windowWidth==1284){
   send_json("wsb");//window sizes of bot
