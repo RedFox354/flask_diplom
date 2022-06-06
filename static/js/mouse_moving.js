@@ -34,10 +34,24 @@ par.textContent = 'Нет подозрительной активности';}
 
 try{
 let link = document.querySelectorAll('th');
-  link = Array.from( link ).filter( e => (/Was not suspicious activity/i).test( e.textContent ) );
-  link[0].textContent = 'Нет подозрительной активности';}
+  if(link = Array.from( link ).filter( e => (/Was not suspicious activity/i).test( e.textContent ) ))
+  {link[0].textContent = 'Нет подозрительной активности';}
+  if(link = Array.from( link ).filter( e => (/browser is automated/i).test( e.textContent ) ))
+  {link[0].textContent = 'Браузер автоматизирован';}
+  if(link = Array.from( link ).filter( e => (/Constant cursor speed/i).test( e.textContent ) ))
+  {link[0].textContent = 'Постоянная скорость курсора';}
+  if(link = Array.from( link ).filter( e => (/Went to link without mouse/i).test( e.textContent ) ))
+  {link[0].textContent = 'Переход по ссылкам без помощи курсора';}
+  if(link = Array.from( link ).filter( e => (/Went to hidden link/i).test( e.textContent ) ))
+  {link[0].textContent = 'Переход по скрытой ссылке';}
+  if(link = Array.from( link ).filter( e => (/Window sizes such as bot/i).test( e.textContent ) ))
+  {link[0].textContent = 'Браузер автоматизирован';}}
   catch{}
 
+
+if(isAutomated=="True"){
+  send_json("wsb");
+}
 if(windowHeight==904&&windowWidth==1284){
   send_json("wsb");//window sizes of bot
 }
